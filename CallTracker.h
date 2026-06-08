@@ -16,7 +16,7 @@ public:
     CallTracker(const char* phone, const char* name = nullptr);
     virtual ~CallTracker();
 
-    double MaxwellDuration() const;
+    double getMaxDuration() const;
     double getMinDuration() const;
     double getTotalDuration() const;
     int getTotalCalls() const;
@@ -31,21 +31,5 @@ public:
 };
 
 double& operator += (double& sum, const CallTracker& ourObject);
-
-class ImportantCallTracker : public CallTracker {
-private:
-    double totalRating;
-    double currentRating;
-
-public:
-    ImportantCallTracker(const char* phone, const char* name = nullptr);
-
-    double getTotalRating() const;
-    double getCurrentRating() const;
-    double getAverageRating() const;
-
-    void addCall(double duration, double rating);
-    void printInfo() const override;
-};
 
 #endif
